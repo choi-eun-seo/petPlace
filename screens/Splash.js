@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   logo3RemovebgPreviewIcon: {
     width: 265,
     height: 124,
-    marginTop: -50,
+    marginTop: -90,
+    marginRight: 60,
   },
   pressable: {
     backgroundColor: Color.colorSilver,

@@ -103,7 +103,7 @@ const NaBar = (() => {
 
 const styles = StyleSheet.create({
   viewLayout2: {
-    width: 414,
+    width: "100%",
     backgroundColor: Color.colorWhite,
   },
 

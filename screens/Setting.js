@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Color, FontSize, FontFamily, Border, Padding } from "../GlobalStyles";
 import Search from'../component/Search';
 import NaBar from "../component/NaBar";
+import CustomMap from "../component/CustomMap";
 
 const Setting = () => {
   const navigation = useNavigation();
@@ -12,6 +13,7 @@ const Setting = () => {
     <View style={styles.view}>
      
       <Search/>
+      <CustomMap />
       <View style={styles.view}/>
      <View style={styles.view12}>
       <Image
@@ -27,7 +29,7 @@ const Setting = () => {
       <Image
         style={[styles.petsRemovebgPreviewIcon, styles.petsIconLayout]}
         resizeMode="cover"
-        source={require("../assets/petsremovebgpreview.png")}
+        source={require("../assets/petremovebgpreview2.png")}
       />
       <Image
         style={styles.user1Icon}
@@ -37,7 +39,7 @@ const Setting = () => {
       <View style={[styles.view3, styles.viewLayout3]} />
       <View style={[styles.view4, styles.viewLayout1]} />
       <View style={[styles.view5, styles.viewLayout1]}>
-        <View style={[styles.view6, styles.viewPosition]} />
+        <View style={[styles.view13, styles.rectanglePosition]} />
         <Image
           style={[styles.user2Icon, styles.iconLayout]}
           resizeMode="cover"
@@ -73,7 +75,7 @@ const Setting = () => {
           <Image
             style={[styles.petsRemovebgPreviewIcon1, styles.iconPosition2]}
             resizeMode="cover"
-            source={require("../assets/petsremovebgpreview.png")}
+            source={require("../assets/petremovebgpreview2.png")}
           />
         </View>
       </View>
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
     width: 66,
   },
   viewLayout3: {
-    width: 414,
+    width: "100%",
     backgroundColor: Color.colorWhite,
   },
   viewLayout1: {
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
   },
   viewLayout: {
     height: 48,
-    width: 394,
+    width: "100%",
   },
   labelTypo: {
     textAlign: "left",
@@ -184,15 +186,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_mini,
     backgroundColor: Color.colorSilver,
   },
-  view6: {
-    left: 0,
-    right: 0,
-    bottom: 0,
-    top: 0,
-    position: "absolute",
-    borderRadius: Border.br_mini,
-    backgroundColor: Color.colorSilver,
-  },
+
   user2Icon: {
     top: 5,
     right: 5,
@@ -201,7 +195,7 @@ const styles = StyleSheet.create({
   },
   view5: {
     marginTop: -45,
-    marginRight: 348,
+    marginRight: 315,
   },
   petsIcon: {
     left: 0,
@@ -218,14 +212,25 @@ const styles = StyleSheet.create({
   },
   text1: {
     marginTop: -30,
-    marginRight: 287,
+    marginRight: 253,
   },
   text2: {
     marginTop: -25,
     marginRight: 75,
   },
- 
+  view13: {
+    left: 0,
+    bottom: 0,
+    position: "absolute",
+    borderRadius: Border.br_mini,
+    backgroundColor: Color.colorSilver,
+  },
 
+  rectanglePosition: {
+    right: 0,
+    bottom: 0,
+    top: 0,
+  },
 
   
   label: {
@@ -243,9 +248,11 @@ const styles = StyleSheet.create({
     bottom: 0,
     top: 0,
     position: "absolute",
+    
   },
   view7: {
     marginTop: 20,
+    
   },
   label1: {
     marginLeft: -130,
@@ -258,19 +265,19 @@ const styles = StyleSheet.create({
   },
 
   view: {
-    backgroundColor: Color.colorWhitesmoke_100,
+    // backgroundColor: Color.colorWhitesmoke_100,
     flex: 1,
     width: "100%",
     alignItems: "flex-end",
     paddingTop: Padding.p_xs,
   },
   view12:{
-    backgroundColor: Color.colorWhitesmoke_100,
+    // backgroundColor: Color.colorWhitesmoke_100,
     flex: 1,
     width: "100%",
     alignItems: "flex-end",
     paddingTop: Padding.p_xs,
-    marginTop: -315,
+    marginTop: -385,
   }
 });
 

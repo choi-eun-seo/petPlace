@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Color, FontSize, Border, FontFamily, Padding } from "../GlobalStyles";
 import Search from "../component/Search";
 import NaBar from "../component/NaBar";
+import CustomMap from "../component/CustomMap";
 
 
 const Star = () => {
@@ -19,6 +20,7 @@ const Star = () => {
   return (
     <View style={styles.view}>
       <Search/>
+      <CustomMap />
       <View style={styles.view}/>
       <Image
         style={[styles.icon, styles.iconLayout1]}
@@ -36,7 +38,7 @@ const Star = () => {
           styles.iconactionsearch24pxLayout,
         ]}
         resizeMode="cover"
-        source={require("../assets/petsremovebgpreview.png")}
+        source={require("../assets/petremovebgpreview2.png")}
       />
       <Image
         style={styles.user1Icon}
@@ -88,7 +90,7 @@ const Star = () => {
           <Image
             style={[styles.petRemovebgPreviewIcon, styles.iconPosition]}
             resizeMode="cover"
-            source={require("../assets/petremovebgpreview2.png")}
+            source={require("../assets/pets.png")}
           />
         </View>
       </View>
@@ -118,7 +120,8 @@ const styles = StyleSheet.create({
   },
   viewSpaceBlock: {
     marginTop: 24,
-    width: 414,
+    // width: 414,
+    width: "100%",
     backgroundColor: Color.colorWhite,
   },
   viewLayout: {
@@ -232,7 +235,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.nanumGothicOTF,
   },
   icon: {
-    marginTop: -225,
+    marginTop: -305,
     marginRight: 57,
   },
   icon1: {
@@ -240,8 +243,8 @@ const styles = StyleSheet.create({
     marginRight: -1,
   },
   petsRemovebgPreviewIcon: {
-    marginTop: -54,
-    marginRight: 87,
+    marginTop: -47,
+    marginRight: 81,
   },
   user1Icon: {
     height: 0,
@@ -264,6 +267,8 @@ const styles = StyleSheet.create({
     marginRight: 20,
     borderRadius: Border.br_mini,
     backgroundColor: Color.colorSilver,
+    width: "100%",
+   
   },
   view5: {
     left: 0,
@@ -280,7 +285,7 @@ const styles = StyleSheet.create({
   },
   view4: {
     marginTop: -45,
-    marginRight: 348,
+    marginRight: 315,
   },
   petsIcon: {
     left: 0,
@@ -296,7 +301,7 @@ const styles = StyleSheet.create({
   },
   text1: {
     marginTop: -25,
-    marginRight: 287,
+    marginRight: 255,
     color: Color.colorBlack,
     fontWeight: "800",
     lineHeight: 25,
@@ -324,6 +329,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 40,
     borderRadius: Border.br_8xs,
+    
   },
   shadow: {
     left: 0,
@@ -377,157 +383,17 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   view6: {
-    width: 394,
+    // width: 394,
+    width: "100%",
     height: 101,
     marginTop: 10,
     marginBottom: -40,
+    marginRight: -25, 
   },
-  rectangle2: {
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-    shadowRadius: 4,
-    elevation: 4,
-    left: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    right: 0,
-  },
-  rectangle3: {
-    shadowColor: "rgba(0, 0, 0, 0.12)",
-    shadowRadius: 10,
-    elevation: 10,
-    left: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    right: 0,
-  },
-  rectangle4: {
-    shadowColor: "rgba(0, 0, 0, 0.14)",
-    shadowRadius: 5,
-    elevation: 5,
-    left: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    right: 0,
-  },
-  darkElevation00dp9Stat: {
-    left: 0,
-    bottom: 0,
-    position: "absolute",
-  },
-  rectangle5: {
-    left: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-  },
-  darkTabselementsconta: {
-    left: 0,
-  },
-  iconActive: {
-    marginLeft: -12,
-    marginTop: -24,
-    left: "50%",
-    top: "50%",
-    position: "absolute",
-    height: 24,
-    width: 24,
-  },
-  iconInactive: {
-    marginLeft: -12,
-  },
-  caption: {
-    marginTop: 6,
-    marginLeft: -7,
-    fontFamily: FontFamily.nanumGothicOTF,
-    textTransform: "uppercase",
-  },
-  lightTabselements6Sta: {
-    left: 7,
-  },
-  indicator: {
-    left: 0,
-  },
-  caption2: {
-    marginLeft: -28,
-    marginTop: 7,
-    fontFamily: FontFamily.nanumGothicOTF,
-    textTransform: "uppercase",
-  },
-  lightTabselements6Sta1: {
-    marginLeft: -60,
-    left: "50%",
-  },
-  lightElevation00dp2: {
-    right: 7,
-    left: 0,
-    bottom: 0,
-    top: 0,
-    position: "absolute",
-    backgroundColor: Color.colorWhite,
-  },
-  primary2: {
-    left: 7,
-    bottom: 0,
-    position: "absolute",
-  },
-  indicator1: {
-    left: 7,
-  },
-  caption3: {
-    marginTop: 5,
-    marginLeft: -40.5,
-    fontWeight: "500",
-    fontFamily: FontFamily.robotoMedium,
-  },
-  iconsocialnotifications24px1: {
-    marginLeft: -8.5,
-  },
-  lightTabselements6Sta2: {
-    width: 127,
-  },
-  glyphstabBarcollectionIcon: {
-    marginTop: -22.25,
-    left: 56,
-    width: 22,
-  },
-  glyphssmallbookmarkIcon: {
-    marginLeft: -6,
-    width: 12,
-    height: 18,
-    left: "50%",
-    top: "50%",
-    marginTop: -20,
-    position: "absolute",
-  },
-  view11: {
-    height: 73,
-  },
-  colorIcon: {
-    width: 18,
-    height: 19,
-    marginTop: -59,
-    marginRight: 58,
-  },
+
+
+
   view: {
-    backgroundColor: Color.colorWhitesmoke_100,
     flex: 1,
     width: "100%",
     alignItems: "flex-end",

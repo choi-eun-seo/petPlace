@@ -13,6 +13,7 @@ import Splash from "./screens/Splash";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
 

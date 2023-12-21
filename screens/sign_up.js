@@ -88,11 +88,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     letterSpacing: 0,
     fontSize: FontSize.size_6xl,
-    paddingTop: 10,
+    paddingTop: 6,
+    marginLeft: 145,
   },
 
   textTypo: {
-    marginLeft: 43,
+    marginLeft: 23,
     textAlign: "left",
     color: Color.colorWhite,
     fontFamily: FontFamily.nanumGothicOTF,
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   pageTitle: {
     width: "24.4%",
     top: 5,
-    left: "5.56%",
+    left: "-32%",
     height: 30,
     position: "absolute",
     marginTop: 30,
@@ -144,8 +145,8 @@ const styles = StyleSheet.create({
   logo3RemovebgPreviewIcon: {
     width: 265,
     height: 124,
-    marginTop: 30,
-    marginLeft: 75,
+    marginTop: -10,
+    marginLeft: 60,
   },
   text: {
     marginTop: 25,

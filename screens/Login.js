@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     letterSpacing: 0,
     fontSize: FontSize.size_6xl,
-    paddingTop: 10,
+    paddingTop: 4,
   },
   primaryIcon: {
     right: 3,
@@ -137,13 +137,13 @@ const styles = StyleSheet.create({
   },
   darkAppBar1TopA: {
     width: 417,
-    height: 61,
+    height: 45,
     marginLeft: 3,
   },
   logo3RemovebgPreviewIcon: {
     width: 265,
     height: 124,
-    marginTop: 59,
+    marginTop: 10,
     marginLeft: 1,
   },
   id: {

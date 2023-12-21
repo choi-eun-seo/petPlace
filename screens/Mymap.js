@@ -1,14 +1,18 @@
 import * as React from "react";
-import { StyleSheet, View, Image, Text, Pressable } from "react-native";
+import { StyleSheet, View, Image, Text, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontSize, FontFamily, Border, Padding } from "../GlobalStyles";
+import NaBar from "../component/NaBar";
 
 const Mymap = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.mymap}>
-      <View style={[styles.view, styles.viewShadowBox]} />
+      <TextInput
+        style={[styles.textinput, styles.viewShadowBox]}
+        keyboardType="default"
+      />
       <View style={[styles.view1, styles.viewShadowBox]} />
       <Image
         style={styles.iconactionsearch24px}
@@ -73,75 +77,35 @@ const Mymap = () => {
       </View>
       <View style={[styles.view10, styles.viewLayout]} />
       <View style={[styles.view11, styles.viewShadowBox]} />
-      <Image
-        style={styles.user1Icon}
-        resizeMode="cover"
-        source={require("../assets/user-1.png")}
-      />
-     
-      <View style={[styles.view13, styles.viewLayout3]}>
-        <View
-          style={[
-            styles.darkTabselementsconta,
-            styles.darkTabselementscontaPosition,
-          ]}
-        >
-          <View style={[styles.rectangle3, styles.viewPosition]} />
-          
-        </View>
-        <Pressable
-          style={[styles.lightTabselements6Sta, styles.lightPosition]}
-          onPress={() => navigation.navigate("Map")}
-        >
-          
-          
-          
-          <Text style={[styles.caption, styles.captionTypo]}>홈</Text>
-        </Pressable>
-        <View style={[styles.lightTabselements6Sta1, styles.lightPosition]}>
-          
-          <Text style={[styles.caption2, styles.captionTypo]}>즐겨찾기</Text>
-          <View style={styles.iconActive}>
-            <View style={[styles.view7, styles.viewPosition]} />
-          </View>
-          <Image
-            style={[styles.iconInactive, styles.iconInactivePosition]}
-            resizeMode="cover"
-            source={require("../assets/icon-inactive.png")}
-          />
-        </View>
+      <View style={styles.nav}/>
 
-
-        <View
-          style={[
-            styles.lightTabselements6Sta2,
-            styles.darkTabselementscontaPosition,
-          ]}
-        >
-          
-          <Text style={[styles.caption3, styles.captionTypo]}>프로필설정</Text>
-        </View>
-        <Image
-          style={[styles.glyphstabBarcollectionIcon, styles.iconPosition]}
-          resizeMode="cover"
-          source={require("../assets/glyphstab-barcollection.png")}
-        />
-        <Image
-          style={[styles.glyphssmallbookmarkIcon, styles.iconPosition]}
-          resizeMode="cover"
-          source={require("../assets/glyphssmallbookmark.png")}
-        />
-      </View>
-      <Image
-        style={styles.colorIcon}
-        resizeMode="cover"
-        source={require("../assets/-color.png")}
-      />
+        <NaBar/>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  nav:{
+    marginBottom: -10,
+  },
+
+  textinput: {
+    width: 290,
+    height: 53,
+    marginRight: 73,
+    elevation: 6,
+    shadowRadius: 6,
+    shadowColor: "rgba(0, 0, 0, 0.3)",
+    borderRadius: Border.br_8xs,
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    backgroundColor: Color.colorWhite,
+    marginTop: 10,
+  },
+
   viewShadowBox: {
     shadowOpacity: 1,
     shadowOffset: {
@@ -150,7 +114,8 @@ const styles = StyleSheet.create({
     },
   },
   viewLayout3: {
-    width: 414,
+    // width: 414,
+    width: "100%",
     backgroundColor: Color.colorWhite,
   },
   textTypo: {
@@ -253,22 +218,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: Color.colorSilver,
   },
-  view: {
-    width: 328,
-    height: 53,
-    marginRight: 73,
-    elevation: 6,
-    shadowRadius: 6,
-    shadowColor: "rgba(0, 0, 0, 0.16)",
-    borderRadius: Border.br_8xs,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    backgroundColor: Color.colorWhite,
-    marginTop: 20,
-  },
+
   view1: {
     width: 52,
     height: 52,
@@ -301,12 +251,12 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.nanumGothicOTF,
   },
   text1: {
-    marginLeft: -134,
+    marginLeft: -110,
     top: 32,
     marginTop: -5,
   },
   text2: {
-    marginLeft: 78,
+    marginLeft: 60,
     top: 33,
     marginTop: -5,
   },
@@ -353,7 +303,6 @@ const styles = StyleSheet.create({
     height: 736,
     marginTop: 32,
     borderStyle: "solid",
-    width: 414,
   },
   text3: {
     color: Color.colorGray_100,
@@ -370,7 +319,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   pressable: {
-    marginLeft: 64,
+    marginLeft: 50,
     top: 10,
     height: 48,
     position: "absolute",
@@ -390,19 +339,22 @@ const styles = StyleSheet.create({
     left: "50%",
   },
   view6: {
-    width: 374,
+    width: "100%",
     height: 70,
     marginTop: -655,
+    // marginRight: 50,
     alignSelf: "center",
   },
   view10: {
     marginTop: -52,
+    width: "80%",
   },
   view11: {
-    width: 373,
-    height: 543,
-    marginTop: 36,
-    marginRight: 20,
+    // width: 373,
+    width: "90%",
+    height: 300,
+    marginTop: 40,
+    marginRight: 18,
     elevation: 6,
     shadowRadius: 6,
     shadowColor: "rgba(0, 0, 0, 0.16)",
@@ -415,161 +367,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.colorWhitesmoke_100,
     marginBottom: -10,
   },
-  user1Icon: {
-    width: 40,
-    height: 0,
-    marginTop: -228,
-    marginRight: 311,
-  },
-  view12: {
-    marginTop: 155,
-  },
-  rectangle: {
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-    shadowRadius: 4,
-    elevation: 4,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-  },
-  rectangle1: {
-    shadowColor: "rgba(0, 0, 0, 0.12)",
-    shadowRadius: 10,
-    elevation: 10,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-  },
-  rectangle2: {
-    shadowColor: "rgba(0, 0, 0, 0.14)",
-    shadowRadius: 5,
-    elevation: 5,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-  },
-  rectangle3: {
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorSilver,
-  },
-  darkTabselementsconta: {
-    left: 0,
-  },
-  lightElevation00dp: {
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-    backgroundColor: Color.colorWhite,
-  },
-  iconActive: {
-    marginTop: -24,
-    top: "50%",
-    marginLeft: -12,
-    left: "50%",
-    position: "absolute",
-    height: 24,
-    width: 24,
-  },
-  iconInactive: {
-    marginLeft: -12,
-  },
-  caption: {
-    marginTop: 6,
-    marginLeft: -7,
-    fontFamily: FontFamily.nanumGothicOTF,
-    textTransform: "uppercase",
-  },
-  lightTabselements6Sta: {
-    left: 7,
-  },
-  indicator: {
-    left: 0,
-  },
-  caption2: {
-    marginTop: 7,
-    marginLeft: -28,
-    fontFamily: FontFamily.nanumGothicOTF,
-    textTransform: "uppercase",
-  },
-  lightTabselements6Sta1: {
-    marginLeft: -60,
-    left: "50%",
-  },
-  lightElevation00dp2: {
-    right: 7,
-    left: 0,
-    position: "absolute",
-    backgroundColor: Color.colorWhite,
-  },
-  primary2: {
-    left: 7,
-    right: 0,
-    bottom: 0,
-    position: "absolute",
-  },
-  indicator1: {
-    left: 7,
-  },
-  caption3: {
-    marginTop: 5,
-    marginLeft: -40.5,
-    fontWeight: "500",
-    fontFamily: FontFamily.robotoMedium,
-  },
-  iconsocialnotifications24px1: {
-    marginLeft: -8.5,
-  },
-  lightTabselements6Sta2: {
-    width: 127,
-  },
-  glyphstabBarcollectionIcon: {
-    marginTop: -22.25,
-    left: 56,
-    width: 22,
-    height: 22,
-  },
-  glyphssmallbookmarkIcon: {
-    marginTop: -20,
-    marginLeft: -6,
-    width: 12,
-    height: 18,
-    left: "50%",
-  },
-  view13: {
-    height: 73,
-    marginTop: 54,
-  },
-  colorIcon: {
-    width: 18,
-    height: 19,
-    marginTop: -59,
-    marginRight: 58,
-  },
+
+
   mymap: {
     flex: 1,
     width: "100%",

@@ -7,23 +7,45 @@ import {
   Pressable,
   Text,
   ScrollView,
+  LogBox,
 } from "react-native";
+import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontSize, FontFamily, Border, Padding } from "../GlobalStyles";
 import Search from '../component/Search';
 import NaBar from '../component/NaBar';
+import CustomMap from "../component/CustomMap";
 
-const Map = () => {
+const Map = ({ route }) => {
+  const {searchData} = route.params || {};
+  const {filter} = route.params || {};
   const navigation = useNavigation();
+  const [markerData, setMarkerData] = useState(null);
+  console.log('searchData : ', searchData);
+
+  const handleUpdateMarkerData = (data) => {
+    setMarkerData(data);
+    console.log(data);
+  };
+
+  // useEffect(() => {
+  //   // Search 컴포넌트에서 전달받은 함수를 이용하여 markerData 업데이트
+  //   if (updateMarkerData) {
+  //     updateMarkerData(handleUpdateMarkerData);
+  //   }
+  // }, [updateMarkerData]);
 
   return (
     <View style={styles.view}>
-      
       <Search/>
-     
-      <View style ={styles.view}/>
+      {/* <Search updateMarkerData={updateMarkerData}/> */}
+      <CustomMap markerData={searchData} filter={filter}/>
+      <View style ={styles.view}>
+      
+      </View>
       <View style={styles.view11}>
-        
+       
+      
       </View>
       <Image
         style={[styles.icon, styles.iconLayout1]}
@@ -41,7 +63,7 @@ const Map = () => {
           styles.iconactionsearch24pxLayout,
         ]}
         resizeMode="cover"
-        source={require("../assets/petsremovebgpreview.png")}
+        source={require("../assets/petremovebgpreview2.png")}
       />
       <Image
         style={styles.user1Icon}
@@ -96,7 +118,7 @@ const Map = () => {
           <Image
             style={styles.iconcontentcreate24px}
             resizeMode="cover"
-            source={require("../assets/petsremovebgpreview.png")}
+            source={require("../assets/petremovebgpreview2.png")}
           />
         </View>
       </Pressable>
@@ -120,7 +142,7 @@ const styles = StyleSheet.create({
     marginTop: -800,
     height: 66,
     width: 66,
-    marginBottom: -285,
+    marginBottom: -355,
   },
 
   food:{
@@ -144,7 +166,7 @@ const styles = StyleSheet.create({
     width: 66,
   },
   viewLayout2: {
-    width: 414,
+    width: "100%",
     backgroundColor: Color.colorWhite,
     height: 190,
   },
@@ -194,7 +216,7 @@ const styles = StyleSheet.create({
     marginTop: 63,
   },
   icon: {
-    marginTop: 805,
+    marginTop: 795,
     marginRight: 57,
     
   },
@@ -221,12 +243,14 @@ const styles = StyleSheet.create({
     height: 218,
     marginTop: 24,
     borderStyle: "solid",
+    width: "100%",
   },
   view3: {
     marginTop: -172,
     marginRight: 20,
     borderRadius: Border.br_mini,
     backgroundColor: Color.colorSilver,
+    
   },
   view5: {
     left: 0,
@@ -235,6 +259,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: Border.br_mini,
     backgroundColor: Color.colorSilver,
+    
   },
   user2Icon: {
     top: 5,
@@ -244,7 +269,7 @@ const styles = StyleSheet.create({
   },
   view4: {
     marginTop: -40,
-    marginRight: 348,
+    marginRight: 315,
     
   },
   petsIcon: {
@@ -255,13 +280,13 @@ const styles = StyleSheet.create({
   },
   pets: {
     width: 33,
-    marginTop: -39,
+    marginTop: -44,
     height: 33,
     marginRight: 26,
   },
   text1: {
     marginTop: -30,
-    marginRight: 287,
+    marginRight: 255,
     paddingTop: 10,
     marginBottom: -20,
   },
@@ -272,9 +297,9 @@ const styles = StyleSheet.create({
     marginBottom: -20,
   },
   icon2: {
-    width: 374,
+    width: "90%",
     height: 70,
-    marginTop: 45,
+    marginTop: 50,
     alignSelf: "center",
     marginBottom: -50,
   },
@@ -300,7 +325,7 @@ const styles = StyleSheet.create({
     height: 48,
     marginTop: -40,
     width: 56,
-    marginRight: 87,
+    marginRight: 75,
    
   },
   mymap: {
@@ -309,18 +334,19 @@ const styles = StyleSheet.create({
   pressable1: {
     height: 46,
     marginTop: -45,
-    marginRight: 273,
+    marginRight: 250,
     width: 56,
   },
   view8: {
     borderColor: Color.colorGainsboro,
     borderRightWidth: 1,
     width: 2,
-    marginTop: -15,
-    marginRight: 205,
+    marginTop: -10,
+    marginRight: 185,
     height: 33,
     borderStyle: "solid",
-    marginBottom: -20,
+    marginBottom: -15,
+    
   },
 
 
@@ -349,49 +375,15 @@ const styles = StyleSheet.create({
     marginLeft: -60,
     left: "50%",
   },
-  lightElevation00dp2: {
-    right: 7,
-    left: 0,
-    position: "absolute",
-    backgroundColor: Color.colorWhite,
-  },
 
-
-  caption3: {
-    marginTop: 5,
-    marginLeft: -100,
-    // marginRight: -60,
-    fontWeight: "500",
-    fontFamily: FontFamily.robotoMedium,
-  },
-
-  glyphstabBarcollectionIcon: {
-    marginTop: -13,
-    left: 56,
-    width: 22,
-    height: 22,
-  },
-  glyphssmallbookmarkIcon: {
-    marginLeft: -6,
-    width: 12,
-    height: 18,
-    left: "50%",
-    marginTop : -12,
-  },
-  
-  colorIcon: {
-    width: 18,
-    height: 19,
-    marginTop: -95,
-    marginRight: 58,
-    marginBottom: 30,
-  },
   view: {
-    backgroundColor: Color.colorWhitesmoke_100,
+    // backgroundColor: Color.colorWhitesmoke_100,
     flex: 1,
     width: "100%",
     alignItems: "flex-end",
+    // alignItems: "center",
     paddingTop: Padding.p_xs,
+    // zIndex: 10,
    
   },
 });
